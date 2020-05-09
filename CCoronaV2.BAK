@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<meta http-equiv="Content-Language" content="ja">
+<meta name="google" content="notranslate">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://codafon655.github.io/top/">
+<meta property="og:title" content="X.Busters">
+<meta property="og:description" content="コロナウイルスについての情報サイト">
+<meta property="og:image" content="https://blog-imgs-137.fc2.com/6/0/5/605050end/dbf.png">
+
+<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="description" content="X.Busters">
+<meta name="keywords" content="">
+<title>カラーコロナV2 | コロナウイルス対策サイト</title>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen">
+
+
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<script src="js/css3-mediaqueries.js"></script>
+<![endif]-->
+<script src="js/jquery1.7.2.min.js"></script>
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+<!-- ヘッダー -->
+<div id="header">
+	<div class="inner">
+		<h1>新型コロナウイルス(Covid19)対策サイト</h1>
+		<!-- ロゴ -->
+		<div class="logo">
+			<a href="index.html">カラーコロナV2<br><span>コロナウイルスの感染者や死者数の推移を図示。</span></a>
+		</div>
+		<!-- / ロゴ -->
+    
+	  <!-- メインナビゲーション -->
+    <nav id="mainNav">
+  		<a class="menu" id="menu"><span>MENU</span></a>
+			<div class="panel">
+				<ul>
+					<li class="active"><a href="index.html">トップページ<br><span>Top</span></a></li>
+					<li><a href="subpage.html">このサイトと作者<br><span>What+Who</span></a></li>
+					<li><a href="index.html">展示品<br><span>Sample</span></a></li>
+					<li><a href="subpage3.html">会社情報<br><span>Company</span></a></li>
+					<li><a href="https://twitter.com/Codafon_655" target="_blank">お問い合わせ<br><span>Contact</span></a></li>
+				</ul>
+      </div>
+    </nav>
+		<!-- メインナビゲーション -->
+    
+
+
+
+  </div>
+</div>
+<!-- / ヘッダー -->
+	<!-- / メイン画像 -->
+ 
+<!-- / WRAPPER -->
+
+
+
+
+
+
+
+
+
+<div align="right"><a href="https://codafon655.github.io/ColorCorona/">カラーコロナV1はこちら</a></div>
+
+
+
+
+
+<!-- グラフ描画エリア style="width:100%;"-->
+<div class="chart_container">
+  <canvas id="myChart" width="16" height="16"></canvas>
+</div>
+
+<style>
+@media screen and (min-width: 768px) {
+  .chart_container {
+    width: 500px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .chart_container {
+    width: 400px;
+    margin: auto;
+  }
+}
+</style>
+
+
+
+
+<!-- グラフ更新ボタン -->
+<!--
+<button type="button" id="btn">グラフを更新</button>
+<button type="button" id="btn2">コロナを更新</button>
+<button type="button" id="btn3">全部</button>
+<button type="button" id="btn4">北海道</button>
+-->
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+//ctx.canvas.weight = 200;
+clickBtn4();
+
+function clickBtn4() {//document.getElementById('btn4').onclick = 
+
+//  if (myChart) {
+//   myChart.destroy();
+//}
+console.log( "textaa" );
+const url = "https://www.stopcovid19.jp/data/covid19japan-all.json";//
+
+$.getJSON(url, (data) => {
+	var array01 =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		array01[i]=data[i].lastUpdate;//+data.area[i].name
+	}
+
+	var npatients=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		npatients[i]=data[i].npatients;
+		//console.log(npatients[i]);
+	}
+	var ndeaths=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		ndeaths[i]=data[i].ndeaths;
+	}
+	var ncurrentpatients=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		ncurrentpatients[i]=data[i].ncurrentpatients;
+	}
+	var nexits=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		nexits[i]=data[i].nexits;
+	}
+
+	var xnpatients=new Array(data.length);
+	npatients[0]=0;
+	for (var i=1; i<data.length; i++) {
+		xnpatients[i]=data[i].npatients-data[i-1].npatients;
+		//console.log(npatients[i]);
+	}
+	var xndeaths=new Array(data.length);
+	ndeaths[0]=0
+	for (var i=1; i<data.length; i++) {
+		xndeaths[i]=data[i].ndeaths-data[i-1].ndeaths;
+	}
+	var xncurrentpatients=new Array(data.length);
+	ncurrentpatients[0]=0;
+	for (var i=1; i<data.length; i++) {
+		xncurrentpatients[i]=data[i].ncurrentpatients-data[i-1].ncurrentpatients;
+	}
+	var xnexits=new Array(data.length);
+	nexits[0]=0;
+	for (var i=1; i<data.length; i++) {
+		xnexits[i]=data[i].nexits-data[i-1].nexits;
+	}
+
+
+
+	var tokyotp =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		tokyotp[i]=data[i].area[12].npatients;//+data.area[i].name
+	}
+	var tokyonp =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		tokyonp[i]=data[i].area[12].ncurrentpatients;//+data.area[i].name
+	}
+	var tokyod =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		tokyod[i]=data[i].area[12].ndeaths;//+data.area[i].name
+	}
+	var tokyoe =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		tokyoe[i]=data[i].area[12].nexits;//+data.area[i].name
+	}
+
+
+
+	var ctx = document.getElementById('myChart').getContext('2d');
+	window.myChart = new Chart(ctx, { // インスタンスをグローバル変数で生成
+		type: 'line',
+		data: { // ラベルとデータセット
+		labels: array01,
+	datasets: [
+	{
+		label: "感染者(累計)",
+		data: npatients, // グラフデータchartVal
+		//    backgroundColor: 'rgb(255, 134, 197, 0)', // 棒の塗りつぶし色
+		//    borderWidth: 1, // 枠線の太さ
+		borderColor: 'rgba(255, 134, 197, 1)', // 棒の枠線の色
+		lineTension: 0, //<===追加
+		fill: false,    //<===追加
+	
+	},
+	{
+		label: "感染者(現在)",
+		data: ncurrentpatients,
+		borderColor: 'rgba(200, 150, 200, 1)',
+		lineTension: 0,
+		fill: false, 
+	},
+	{
+		label: "死者数",
+		data: ndeaths, // グラフデータchartVal
+		//      backgroundColor: 'rgb(0, 134, 197, 0.7)', // 棒の塗りつぶし色
+		//      borderColor: 'rgba(0, 134, 197, 1)', // 棒の枠線の色
+		borderColor: 'rgba(0, 0, 0, 1)', // 棒の枠線の色
+		//	backgroundColor: 'rgb(0, 134, 197, 0)',
+		//        borderWidth: 1, // 枠線の太さ
+		lineTension: 0, //<===追加
+		fill: false,    //<===追加
+	},
+	{
+		label: "退院数",
+		data: nexits,
+		borderColor: 'rgba(120, 255, 120, 1)',
+		lineTension: 0,
+		fill: false, 
+	},
+
+
+
+	],
+	},
+	options: {
+		legend: {
+			 display: true, // 凡例を非表示
+			maintainAspectRatio:true,
+			responsive:false,
+			//maintainAspectRatio: false,
+	              labels: {
+				boxWidth: 20,
+	                    fontSize: 13,       // ┐
+	                }
+		},
+	}
+});
+});
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<br>
+ <h1>折れ線グラフ</h1>
+  <canvas id="myLineChart"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+  <script>
+  var ctx = document.getElementById("myLineChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['8月1日', '8月2日', '8月3日', '8月4日', '8月5日', '8月6日', '8月7日'],
+      datasets: [
+        {
+          label: '最高気温(度）',
+          data: [35, 34, 37, 35, 34, 35, 34, 25],
+          borderColor: "rgba(255,0,0,1)",
+          backgroundColor: "rgba(0,0,0,0)"
+        },
+        {
+          label: '最低気温(度）',
+          data: [25, 27, 27, 25, 26, 27, 25, 21],
+          borderColor: "rgba(0,0,255,1)",
+          backgroundColor: "rgba(0,0,0,0)"
+        }
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: '気温（8月1日~8月7日）'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            suggestedMax: 40,
+            suggestedMin: 0,
+            stepSize: 10,
+            callback: function(value, index, values){
+              return  value +  '度'
+            }
+          }
+        }]
+      },
+    }
+  });
+  </script>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- グラフ描画エリア style="width:100%;"-->
+<div class="chart_container3">
+  <canvas id="myChart3" width="16" height="16"></canvas>
+</div>
+
+<style>
+@media screen and (min-width: 768px) {
+  .chart_container3 {
+    width: 500px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .chart_container3 {
+    width: 400px;
+    margin: auto;
+  }
+}
+</style>
+<!-- グラフ更新ボタン -->
+<!--
+<button type="button" id="btn">グラフを更新</button>
+<button type="button" id="btn2">コロナを更新</button>
+<button type="button" id="btn3">全部</button>
+<button type="button" id="btn4">北海道</button>
+-->
+
+<script>
+var ctx = document.getElementById('myChart3').getContext('2d');
+//ctx.canvas.weight = 200;
+clickBtn6();
+
+function clickBtn6() {//document.getElementById('btn4').onclick = 
+
+//  if (myChart) {
+//   myChart.destroy();
+//}
+console.log( "textaa" );
+const url = "https://www.stopcovid19.jp/data/covid19japan-all.json";//
+
+$.getJSON(url, (data) => {
+	var array01 =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		array01[i]=data[i].lastUpdate;//+data.area[i].name
+	}
+
+	var npatients=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		npatients[i]=data[i].npatients;
+		//console.log(npatients[i]);
+	}
+	var ndeaths=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		ndeaths[i]=data[i].ndeaths;
+	}
+	var ncurrentpatients=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		ncurrentpatients[i]=data[i].ncurrentpatients;
+	}
+	var nexits=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		nexits[i]=data[i].nexits;
+	}
+
+	var xnpatients=new Array(data.length);
+	npatients[0]=0;
+	for (var i=1; i<data.length; i++) {
+		xnpatients[i]=data[i].npatients-data[i-1].npatients;
+		//console.log(npatients[i]);
+	}
+	var xndeaths=new Array(data.length);
+	ndeaths[0]=0
+	for (var i=1; i<data.length; i++) {
+		xndeaths[i]=data[i].ndeaths-data[i-1].ndeaths;
+	}
+	var xncurrentpatients=new Array(data.length);
+	ncurrentpatients[0]=0;
+	for (var i=1; i<data.length; i++) {
+		xncurrentpatients[i]=data[i].ncurrentpatients-data[i-1].ncurrentpatients;
+	}
+	var xnexits=new Array(data.length);
+	nexits[0]=0;
+	for (var i=1; i<data.length; i++) {
+		xnexits[i]=data[i].nexits-data[i-1].nexits;
+	}
+
+
+
+
+	var ctx = document.getElementById('myChart3').getContext('2d');
+	window.myChart = new Chart(ctx, { // インスタンスをグローバル変数で生成
+		type: 'line',
+		data: { // ラベルとデータセット
+		labels: array01,
+	datasets: [
+
+
+
+
+
+	{
+		label: "感染（１日）",
+		data: xnpatients, // グラフデータchartVal
+		//    backgroundColor: 'rgb(255, 134, 197, 0)', // 棒の塗りつぶし色
+		//    borderWidth: 1, // 枠線の太さ
+		borderColor: 'rgba(255, 134, 197, 1)', // 棒の枠線の色
+		lineTension: 0, //<===追加
+		fill: false,    //<===追加
+	
+	},
+	{
+		label: "死者（１日）",
+		data: xndeaths, // グラフデータchartVal
+		//      backgroundColor: 'rgb(0, 134, 197, 0.7)', // 棒の塗りつぶし色
+		//      borderColor: 'rgba(0, 134, 197, 1)', // 棒の枠線の色
+		borderColor: 'rgba(0, 0, 0, 1)', // 棒の枠線の色
+		//	backgroundColor: 'rgb(0, 134, 197, 0)',
+		//        borderWidth: 1, // 枠線の太さ
+		lineTension: 0, //<===追加
+		fill: false,    //<===追加
+	},
+	{
+		label: "退院（１日）",
+		data: xnexits,
+		borderColor: 'rgba(120, 255, 120, 1)',
+		lineTension: 0,
+		fill: false, 
+	},
+
+
+
+
+
+
+	],
+	},
+	options: {
+		legend: {
+			 display: true, // 凡例を非表示
+			maintainAspectRatio:true,
+			responsive:false,
+			//maintainAspectRatio: false,
+	              labels: {
+				boxWidth: 20,
+	                    fontSize: 13,       // ┐
+	                }
+		},
+	}
+});
+});
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- グラフ描画エリア style="width:100%;"-->
+<div class="chart_container2">
+  <canvas id="myChart2" width="16" height="16"></canvas>
+</div>
+
+<style>
+@media screen and (min-width: 768px) {
+  .chart_container2 {
+    width: 500px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .chart_container2 {
+    width: 400px;
+    margin: auto;
+  }
+}
+</style>
+<!-- グラフ更新ボタン -->
+<!--
+<button type="button" id="btn">グラフを更新</button>
+<button type="button" id="btn2">コロナを更新</button>
+<button type="button" id="btn3">全部</button>
+<button type="button" id="btn4">北海道</button>
+-->
+
+<script>
+var ctx = document.getElementById('myChart2').getContext('2d');
+//ctx.canvas.weight = 200;
+clickBtn5();
+
+function clickBtn5() {//document.getElementById('btn4').onclick = 
+
+//  if (myChart) {
+//   myChart.destroy();
+//}
+console.log( "textaa" );
+const url = "https://www.stopcovid19.jp/data/covid19japan-all.json";//
+
+$.getJSON(url, (data) => {
+	var array01 =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		array01[i]=data[i].lastUpdate;//+data.area[i].name
+	}
+
+
+	var npatients=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		npatients[i]=data[i].npatients;
+		//console.log(npatients[i]);
+	}
+	var ndeaths=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		ndeaths[i]=data[i].ndeaths;
+	}
+	var ncurrentpatients=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		ncurrentpatients[i]=data[i].ncurrentpatients;
+	}
+	var nexits=new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		nexits[i]=data[i].nexits;
+	}
+
+	var xnpatients=new Array(data.length);
+	npatients[0]=0;
+	for (var i=1; i<data.length; i++) {
+		xnpatients[i]=data[i].npatients-data[i-1].npatients;
+		//console.log(npatients[i]);
+	}
+	var xndeaths=new Array(data.length);
+	ndeaths[0]=0
+	for (var i=1; i<data.length; i++) {
+		xndeaths[i]=data[i].ndeaths-data[i-1].ndeaths;
+	}
+	var xncurrentpatients=new Array(data.length);
+	ncurrentpatients[0]=0;
+	for (var i=1; i<data.length; i++) {
+		xncurrentpatients[i]=data[i].ncurrentpatients-data[i-1].ncurrentpatients;
+	}
+	var xnexits=new Array(data.length);
+	nexits[0]=0;
+	for (var i=1; i<data.length; i++) {
+		xnexits[i]=data[i].nexits-data[i-1].nexits;
+	}
+
+
+
+	var tokyotp =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		tokyotp[i]=data[i].area[12].npatients;//+data.area[i].name
+	}
+	var tokyonp =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		tokyonp[i]=data[i].area[12].ncurrentpatients;//+data.area[i].name
+	}
+	var tokyod =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		tokyod[i]=data[i].area[12].ndeaths;//+data.area[i].name
+	}
+	var tokyoe =new Array(data.length);
+	for (var i=0; i<data.length; i++) {
+		tokyoe[i]=data[i].area[12].nexits;//+data.area[i].name
+	}
+
+
+	var ctx = document.getElementById('myChart2').getContext('2d');
+	window.myChart = new Chart(ctx, { // インスタンスをグローバル変数で生成
+		type: 'line',
+		data: { // ラベルとデータセット
+		labels: array01,
+	datasets: [
+
+
+
+
+
+	{
+		borderColor: "red", 
+		label: "感染(東京)",
+		data: tokyotp,
+		borderColor: 'rgba(255, 134, 197, 1)',
+		lineTension: 0,
+		fill: false,
+	//	hidden:true,
+	},
+	{
+		label: "感染(東京)",
+		data: tokyonp,
+		borderColor: 'rgba(200, 150, 200, 1)',
+		lineTension: 0,
+		fill: false, 
+	//	hidden:true,
+	},
+	{
+		label: "死者(東京)",
+		data: tokyod,
+		borderColor: 'rgba(0, 0, 0, 1)',
+		lineTension: 0,
+		fill: false, 
+	//	hidden:true,
+	},
+	{
+		label: "退院(東京)",
+		data: tokyoe,
+		borderColor: 'rgba(120, 255, 120, 1)',
+		lineTension: 0,
+		fill: false, 
+	//	hidden:true,
+		
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	],
+	},
+	options: {
+		legend: {
+			 display: true, // 凡例を非表示
+			maintainAspectRatio:true,
+			responsive:false,
+			//maintainAspectRatio: false,
+	              labels: {
+				boxWidth: 20,
+	                    fontSize: 13,       // ┐
+	                }
+		},
+	}
+});
+});
+}
+</script>
+
+
+
+
+
+
+
+■データ出展<br>
+<a href="https://www.stopcovid19.jp/tableview.html">・新型コロナウイルス感染症（国内事例）の状況（PCR検査陽性者数の累積）</a><br>
+<a href="https://www.stopcovid19.jp/">・COVID-19 Japan 新型コロナウイルス対策ダッシュボード</a><br>
+<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000164708_00001.html">・(厚生労働省)新型コロナウイルス感染症について</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- フッター -->
+<div id="footer">
+	<div class="inner">
+    
+		<!-- 3カラム -->
+    <section class="gridWrapper">
+      
+			<article class="grid">
+      	<!-- ロゴ -->
+				<!-- / ロゴ -->
+			</article>
+			
+      <article class="grid">
+      	<!-- 電話番号+受付時間 -->
+		<!--		<p class="tel">電話: <strong>012-3456-7890</strong></p>
+				<p>受付時間: 平日 AM 10:00 〜 PM 5:00</p>-->
+				<!-- / 電話番号+受付時間 -->
+			</article>
+			
+      <article class="grid copyright">
+      	Copyright(c) 2012 Sample Inc. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank" rel="nofollow">http://f-tpl.com</a>
+			</article>
+		
+    </section>
+		<!-- / 3カラム -->
+      
+	</div>
+</div>
+<!-- / フッター -->
+
+</body>
+</html>
