@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Language" content="ja">
 <meta name="google" content="notranslate">
 <meta name="twitter:card" content="summary">
-<meta property="og:url" content="https://codafon655.github.io/top/">
+<meta property="og:url" content="https://codafon655.github.io/">
 <meta property="og:title" content="X.Busters">
 <meta property="og:description" content="コダフォンのホームページです。">
 <meta property="og:image" content="https://suznooto.wiki.fc2.com/upload_dir/s/suznooto/c7afaba3c56adb213248a7e3a1d048e4.png">
@@ -163,8 +163,8 @@
 			
       <article class="grid">
       	<!-- 電話番号+受付時間 -->
-				<p class="tel">電話: <strong>012-3456-7890</strong></p>
-				<p>受付時間: 平日 AM 10:00 〜 PM 5:00</p>
+			<!--	<p class="tel">電話: <strong>012-3456-7890</strong></p>
+				<p>受付時間: 平日 AM 10:00 〜 PM 5:00</p>-->
 				<!-- / 電話番号+受付時間 -->
 			</article>
 			
