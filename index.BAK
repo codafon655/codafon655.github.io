@@ -78,7 +78,7 @@
   <section class="gridWrapper">
 		<article class="grid">
 			<h3>カラーコロナV2</h3>
-			<p class="img"><a href="https://codafon655.github.io/top/ColorCoronaV2"><img src="images/sizuv2.png" width="170" height="170" alt=""></a></p>	
+			<p class="img"><a href="https://codafon655.github.io/ColorCoronaV2"><img src="images/sizuv2.png" width="170" height="170" alt=""></a></p>	
 			<p>こちらは感染者数の推移に重点を置いたサイト。１日ごとの増加数や累計など、3月以降の情報を図に示しました。JSONに感謝。</p>
 			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1248961318918320129">詳細を確認する</a></p>
 		</article>
@@ -157,7 +157,6 @@
       
 			<article class="grid">
       	<!-- ロゴ -->
-				<p class="logo"><a href="index.html">Company Name<br /><span>Your Company Slogan</span></a></p>
 				<!-- / ロゴ -->
 			</article>
 			
