@@ -72,81 +72,8 @@
 -->
 
 
-	</div>
-	<!-- / メイン画像 -->
- 
-	<!-- 4カラム -->
-  <section class="gridWrapper">
-		<article class="grid">
-			<h3>カラーコロナV2</h3>
-			<p class="img"><a href="https://codafon655.github.io/ColorCoronaV2"><img src="images/sizuv2.png" width="170" height="170" alt=""></a></p>	
-			<p>こちらは感染者数の推移に重点を置いたサイト。１日ごとの増加数や累計など、3月以降の情報を図に示しました。JSONに感謝。</p>
-			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1248961318918320129">詳細を確認する</a></p>
-		</article>
-		<article class="grid">
-			<h3>カラーコロナ</h3>
-			<p class="img"><a href="https://codafon655.github.io/ColorCorona/"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/202005052004129d3.png" width="170" height="170" alt=""></a></p>	
-			<p>新型コロナの感染者数、死者数などを可視化するサイト。スライダーを実装することで、単純な情報の羅列と差別化。ちな自動取得です。</p>
-			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1248961318918320129">詳細を確認する</a></p>
-		</article>
-
-		<article class="grid">
-			<h3>100ワニタワーバトル</h3>
-			<p class="img"><a href="https://codafon655.github.io/100wanita/"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/wanu.png" width="170" height="170" alt=""></a></p>
-			<p>100日後にﾀﾋぬワニと動物タワーバトルのパロゲー。虐ワニのついでに作った代物で、某所で使ったシステムをそのまま流用してます。
-			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1243830483911200770">詳細を確認する</a></p>
-		</article>
-
-		<article class="grid">
-			<h3>スーパーオルガ</h3>
-			<p class="img"><a href="https://unityroom.com/games/tekkadan_ver0"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/orga.png" width="170" height="170" alt=""></a></p>
-			<p>オルガの横スクロールアクションゲーム。オルガが全盛期だったころの作品。操作方法とか人生オワタの大冒険のパクりです。
-			<p class="readmore"><a href="https://www.nicovideo.jp/watch/sm32603719">詳細を確認する</a></p>
-		</article>
-
-		<article class="grid">
-			<h3>ぷよぷよ vs SANS</h3>
-			<p class="img"><a href="https://unityroom.com/games/puyosans"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/saxnas.png" width="170" height="170" alt=""></a></p>
-			<p>サンズとぷよぷよ。ターン制のぷよぷよで３回置くと１段降ってきます。一見理不尽ですが、あめみやたいようの方が強いみたいです。
-			<p class="readmore"><a href="https://www.youtube.com/watch?v=dChaQwOYgaY">詳細を確認する</a></p>
-		</article>
-
-		<article class="grid">
-			<h3>どすけべタワーバトル</h3>
-			<p class="img"><a href="https://codafon655.github.io/WebGLGame/"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/himii.png" width="170" height="170" alt=""></a></p>
-			<p>ぬきたしのアレ。ニコニコに上げてくれた人もいて、そこそこバズった印象。ランキング機能が申し訳程度のやり込み要素です。
-			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1218877595330043904">詳細を確認する</a></p>
-		</article>
-
-		<article class="grid">
-			<h3>ぬきたし立ち絵メーカー</h3>
-			<p class="img"><a href="https://codafon655.github.io/CharaCollect/mube"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/gaf.png" width="170" height="170" alt=""></a></p>
-			<p>顔のパーツを選択して立ち絵を生成するアレ。いつかキャラ追加すると思う。実はデレマスのサイトを魔改造して作りました。
-			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1227176614552715264">詳細を確認する</a></p>
-		</article>
 
 
-
-
-
-
-	<!-- / 4カラム -->
-</section>
-	<section class="content">
-		<h3 class="heading">このサイトは何</h3>
-		<article>
-			<img src="images/sample2.jpg" width="320" height="240" alt="" class="alignleft frame">
-			<p>物置。</p>
-		</article>
-	</section>
-
-</div>
-<!-- / WRAPPER -->
-
-
-<!-- admax -->
-<script src="https://adm.shinobi.jp/s/0d69c41e24462624b82f1fe240058267"></script>
-<!-- admax -->
 
 
 <!-- フッター -->
@@ -179,5 +106,9 @@
 </div>
 <!-- / フッター -->
 
+
+<!-- admax -->
+<script src="https://adm.shinobi.jp/s/0d69c41e24462624b82f1fe240058267"></script>
+<!-- admax -->
 </body>
 </html>
