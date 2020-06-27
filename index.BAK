@@ -31,7 +31,7 @@
 		<h1>@Codafon_655 のホームページです</h1>
 		<!-- ロゴ -->
 		<div class="logo">
-			<a href="index.html">X.Busters<br><span>なんらかの創作についてなど不定期に。</span></a>
+			<a href="https://codafon655.github.io/">X.Busters<br><span>なんらかの創作についてなど不定期に。</span></a>
 		</div>
 		<!-- / ロゴ -->
     
@@ -76,20 +76,6 @@
 	<!-- / メイン画像 -->
  
 	<!-- 4カラム -->
-  <section class="gridWrapper">
-		<article class="grid">
-			<h3>カラーコロナV2</h3>
-			<p class="img"><a href="https://codafon655.github.io/ColorCoronaV2"><img src="images/sizuv2.png" width="170" height="170" alt=""></a></p>	
-			<p>こちらは感染者数の推移に重点を置いたサイト。１日ごとの増加数や累計など、3月以降の情報を図に示しました。JSONに感謝。</p>
-			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1248961318918320129">詳細を確認する</a></p>
-		</article>
-		<article class="grid">
-			<h3>カラーコロナ</h3>
-			<p class="img"><a href="https://codafon655.github.io/ColorCorona/"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/202005052004129d3.png" width="170" height="170" alt=""></a></p>	
-			<p>新型コロナの感染者数、死者数などを可視化するサイト。スライダーを実装することで、単純な情報の羅列と差別化。ちな自動取得です。</p>
-			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1248961318918320129">詳細を確認する</a></p>
-		</article>
-
 		<article class="grid">
 			<h3>100ワニタワーバトル</h3>
 			<p class="img"><a href="https://codafon655.github.io/100wanita/"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/wanu.png" width="170" height="170" alt=""></a></p>
@@ -103,7 +89,19 @@
 			<p>オルガの横スクロールアクションゲーム。オルガが全盛期だったころの作品。操作方法とか人生オワタの大冒険のパクりです。
 			<p class="readmore"><a href="https://www.nicovideo.jp/watch/sm32603719">詳細を確認する</a></p>
 		</article>
-
+  <section class="gridWrapper">
+		<article class="grid">
+			<h3>カラーコロナV2</h3>
+			<p class="img"><a href="https://codafon655.github.io/ColorCoronaV2"><img src="images/sizuv2.png" width="170" height="170" alt=""></a></p>	
+			<p>こちらは感染者数の推移に重点を置いたサイト。１日ごとの増加数や累計など、3月以降の情報を図に示しました。JSONに感謝。</p>
+			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1248961318918320129">詳細を確認する</a></p>
+		</article>
+		<article class="grid">
+			<h3>カラーコロナ</h3>
+			<p class="img"><a href="https://codafon655.github.io/ColorCorona/"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/202005052004129d3.png" width="170" height="170" alt=""></a></p>	
+			<p>新型コロナの感染者数、死者数などを可視化するサイト。スライダーを実装することで、単純な情報の羅列と差別化。ちな自動取得です。</p>
+			<p class="readmore"><a href="https://twitter.com/Codafon_655/status/1248961318918320129">詳細を確認する</a></p>
+		</article>
 		<article class="grid">
 			<h3>ぷよぷよ vs SANS</h3>
 			<p class="img"><a href="https://unityroom.com/games/puyosans"><img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/saxnas.png" width="170" height="170" alt=""></a></p>
