@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
 <meta name="description" content="コダフォンのホームページです。">
 <meta name="keywords" content="">
-<title>コダフォンの巣窟 | このサイトと作者</title>
+<title>コダフォンのホームページ | このサイトと作者</title>
 <link rel="stylesheet" href="style.css" type="text/css" media="screen">
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
@@ -31,7 +31,7 @@
 		<h1>@Codafon_655 のホームページです</h1>
 		<!-- ロゴ -->
 		<div class="logo">
-			<a href="https://codafon655.github.io/">コダフォンの巣窟<br><span>なんらかの創作について不定期に。</span></a>
+			<a href="https://codafon655.github.io/">コダフォンのホームページ<br><span>なんらかの創作について不定期に。</span></a>
 		</div>
 		<!-- / ロゴ -->
     
@@ -83,7 +83,7 @@ discord: C.C.#7454<br>
 		<section class="content">
 			<h3 class="heading">取り組み</h3>
 			<article>
-				<img src="https://blog-imgs-137.fc2.com/6/0/5/605050end/dv.png" width="320" height="240" alt="" class="alignleft frame">
+				<img src="https://pbs.twimg.com/media/DSTARE_VQAE1MNN.jpg:small" width="320" height="240" alt="" class="alignleft frame">
 				<p>ニコニコに動画上げてた。</p>
 				<p>プログラミングにお熱。</p>
 				<p>そのうち絵と音楽。</p>
